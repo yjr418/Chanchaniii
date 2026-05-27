@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>눈송 네비</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=Roboto:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/status-bar.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/current-location.css" />
+  </head>
+  <body>
+    <!-- 09_home — Figma node 80:2613 -->
+    <div
+      id="screen-home"
+      class="screen home is-active"
+      data-node-id="80:2613"
+      data-name="09_home"
+    >
+      <div class="home__bg-ellipse" data-node-id="80:2614" aria-hidden="true">
+        <img src="" alt="" data-asset="bgEllipse" />
+      </div>
+
+      <header class="status-bar" data-node-id="80:2615" aria-hidden="true">
+        <div class="status-bar__shell">
+          <div class="status-bar__status" data-name="Status">
+            <div class="status-bar__time-block" data-name="Time &amp; Date">
+              <p class="status-bar__time">9:30</p>
+            </div>
+            <div class="status-bar__icons-block" data-name="Status Icons">
+              <div class="status-bar__wifi-network" data-name="Wi-Fi Network">
+                <div class="status-bar__icon status-bar__icon--wifi" data-name="Wifi">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--wifi" data-name="signal">
+                    <img src="" alt="" data-asset="wifi" />
+                  </div>
+                </div>
+                <div class="status-bar__icon status-bar__icon--signal" data-name="Signal">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--signal" data-name="Vector">
+                    <img src="" alt="" data-asset="signal" />
+                  </div>
+                </div>
+              </div>
+              <div class="status-bar__battery-block" data-name="Battery">
+                <div class="status-bar__icon status-bar__icon--battery" data-name="Battery">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--battery" data-name="Base">
+                    <img src="" alt="" data-asset="battery" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="status-bar__camera" data-name="Camera">
+              <span class="status-bar__camera-dot" data-name="Camera"></span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <button
+        type="button"
+        class="fab fab--settings"
+        data-node-id="102:664"
+        aria-label="설정"
+      >
+        <span class="fab-settings__icon" aria-hidden="true">
+          <span class="fab-settings__pad">
+            <img src="" alt="" data-asset="settings" />
+          </span>
+        </span>
+      </button>
+
+      <h1 class="home__greeting" data-node-id="80:2620">
+        눈송님,<br />
+        어디로 가시나요?
+      </h1>
+
+      <!-- 카드 배경 (Rectangle 451–454) -->
+      <button
+        type="button"
+        id="rectangle-451"
+        class="home__rect home__rect--451"
+        data-node-id="80:2616"
+        data-name="Rectangle 451"
+        aria-label="환승하러 가기"
+      ></button>
+      <div class="home__rect home__rect--452" data-node-id="80:2618" data-name="Rectangle 452"></div>
+      <div class="home__rect home__rect--453" data-node-id="80:2617" data-name="Rectangle 453"></div>
+      <div class="home__rect home__rect--454" data-node-id="80:2619" data-name="Rectangle 454"></div>
+
+      <!-- 카드 라벨 (Figma와 동일 — 카드 밖 절대 배치) -->
+      <p class="home__label home__label--transfer" data-node-id="80:2621">환승하러 가기</p>
+      <p class="home__label home__label--exit" data-node-id="80:2622">출구 찾기</p>
+      <p class="home__label home__label--elevator" data-node-id="80:2636">엘리베이터 찾기</p>
+      <p class="home__label home__label--restroom" data-node-id="80:2637">화장실 찾기</p>
+
+      <!-- 일러스트 (Vectorized 프레임) -->
+      <div class="home__art home__art--train" data-node-id="80:2623">
+        <img src="" alt="" data-asset="train" />
+      </div>
+      <div class="home__art home__art--exit" data-node-id="80:2630">
+        <img src="" alt="" data-asset="exit" />
+      </div>
+      <div class="home__art home__art--elevator" data-node-id="80:2638">
+        <img src="" alt="" data-asset="elevator" />
+      </div>
+      <div class="home__art home__art--restroom" data-node-id="80:2643">
+        <img src="" alt="" data-asset="restroom" />
+      </div>
+    </div>
+
+    <!-- 10_current location — Figma node 80:2653 -->
+    <div
+      id="screen-current-location"
+      class="screen current-location"
+      data-node-id="80:2653"
+      data-name="10_current location"
+      hidden
+    >
+      <div class="current-location__bg-ellipse" data-node-id="80:2654" aria-hidden="true">
+        <img src="" alt="" data-asset="bgEllipse" />
+      </div>
+
+      <header class="status-bar" data-node-id="80:2655" aria-hidden="true">
+        <div class="status-bar__shell">
+          <div class="status-bar__status" data-name="Status">
+            <div class="status-bar__time-block" data-name="Time &amp; Date">
+              <p class="status-bar__time">9:30</p>
+            </div>
+            <div class="status-bar__icons-block" data-name="Status Icons">
+              <div class="status-bar__wifi-network" data-name="Wi-Fi Network">
+                <div class="status-bar__icon status-bar__icon--wifi" data-name="Wifi">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--wifi" data-name="signal">
+                    <img src="" alt="" data-asset="wifi" />
+                  </div>
+                </div>
+                <div class="status-bar__icon status-bar__icon--signal" data-name="Signal">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--signal" data-name="Vector">
+                    <img src="" alt="" data-asset="signal" />
+                  </div>
+                </div>
+              </div>
+              <div class="status-bar__battery-block" data-name="Battery">
+                <div class="status-bar__icon status-bar__icon--battery" data-name="Battery">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--battery" data-name="Base">
+                    <img src="" alt="" data-asset="battery" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="status-bar__camera" data-name="Camera">
+              <span class="status-bar__camera-dot" data-name="Camera"></span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <button
+        type="button"
+        id="btn-back"
+        class="fab fab--back"
+        data-node-id="102:657"
+        aria-label="뒤로 가기"
+      >
+        <!-- Figma Frame 182 → Arrow 12 (80:3449): rotate 180° + inset 패딩 -->
+        <span class="fab-back__center" aria-hidden="true">
+          <span class="fab-back__rotate">
+            <span class="fab-back__slot">
+              <span class="fab-back__pad">
+                <img src="" alt="" data-asset="backArrow" data-node-id="80:3449" />
+              </span>
+            </span>
+          </span>
+        </span>
+      </button>
+
+      <button
+        type="button"
+        class="fab fab--settings"
+        data-node-id="102:658"
+        aria-label="설정"
+      >
+        <span class="fab-settings__icon" aria-hidden="true">
+          <span class="fab-settings__pad">
+            <img src="" alt="" data-asset="settings" />
+          </span>
+        </span>
+      </button>
+
+      <div class="current-location__status-row">
+        <div class="current-location__pulse-wrap" data-node-id="80:2662">
+          <img src="" alt="" data-asset="locationPulse" />
+        </div>
+        <p class="current-location__status" data-node-id="80:2661">위치 인식 중...</p>
+      </div>
+
+      <h1 class="current-location__title" data-node-id="80:2660">
+        주변 공간을<br />
+        인식하고 있어요
+      </h1>
+
+      <div class="current-location__radar" data-node-id="80:2663" aria-hidden="true">
+        <img
+          class="current-location__radar-layer--base"
+          src=""
+          alt=""
+          data-asset="radarBase"
+          data-node-id="80:2668"
+        />
+        <img
+          class="current-location__radar-layer--3"
+          src=""
+          alt=""
+          data-asset="radarRing3"
+          data-node-id="80:2667"
+        />
+        <img
+          class="current-location__radar-layer--2"
+          src=""
+          alt=""
+          data-asset="radarRing2"
+          data-node-id="80:2666"
+        />
+        <img
+          class="current-location__radar-layer--1"
+          src=""
+          alt=""
+          data-asset="radarRing1"
+          data-node-id="80:2665"
+        />
+        <img
+          class="current-location__radar-glow"
+          src=""
+          alt=""
+          data-asset="radarGlow"
+          data-node-id="80:2664"
+        />
+        <div class="current-location__radar-beam" data-node-id="80:2669"></div>
+        <span class="current-location__sparkle current-location__sparkle--1" data-node-id="80:2670">
+          <img src="" alt="" data-asset="sparkle" />
+        </span>
+        <span class="current-location__sparkle current-location__sparkle--2" data-node-id="80:2671">
+          <img src="" alt="" data-asset="sparkle" />
+        </span>
+        <span class="current-location__sparkle current-location__sparkle--3" data-node-id="80:2672">
+          <img src="" alt="" data-asset="sparkle" />
+        </span>
+        <span class="current-location__sparkle current-location__sparkle--4" data-node-id="80:2673">
+          <img src="" alt="" data-asset="sparkle" />
+        </span>
+        <span class="current-location__sparkle current-location__sparkle--5" data-node-id="80:2674">
+          <img src="" alt="" data-asset="sparkle" />
+        </span>
+        <span class="current-location__sparkle current-location__sparkle--6" data-node-id="80:2675">
+          <img src="" alt="" data-asset="sparkle" />
+        </span>
+        <span class="current-location__sparkle current-location__sparkle--7" data-node-id="80:2676">
+          <img src="" alt="" data-asset="sparkle" />
+        </span>
+        <span class="current-location__sparkle current-location__sparkle--8" data-node-id="80:2677">
+          <img src="" alt="" data-asset="sparkle" />
+        </span>
+      </div>
+    </div>
+
+    <script src="js/assets.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
