@@ -1,0 +1,351 @@
+/* Figma: 10_current location — 80:2653 (412×917) */
+.current-location {
+  width: 100%;
+  max-width: 412px;
+  height: 917px;
+  min-height: 917px;
+  margin: 0 auto;
+  background: #fafaf8;
+}
+
+.current-location__bg-ellipse {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ffffff 30%,
+    #fff8f0 48%,
+    #ffe8c8 68%,
+    #ffc285 88%,
+    #ffb366 100%
+  );
+}
+
+.current-location__bg-ellipse img {
+  display: none;
+}
+
+/* Frame 182 — back (Figma: px 18, py 28, Arrow 12 + rotate 180°) */
+.current-location .fab--back {
+  left: 24px;
+  top: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 28px 18px;
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
+}
+
+.fab-back__center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fab-back__rotate {
+  display: block;
+  flex-shrink: 0;
+  transform: rotate(180deg);
+}
+
+/* Figma: h-0 w-[20px] + img inset [-7.36px -5%] */
+.fab-back__slot {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 0;
+}
+
+.fab-back__pad {
+  position: absolute;
+  top: -7.36px;
+  right: -5%;
+  bottom: -7.36px;
+  left: -5%;
+}
+
+.fab-back__pad img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}
+
+/* Ellipse 104 + 위치 인식 중... */
+.current-location__status-row {
+  position: absolute;
+  top: 192px;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 32px;
+}
+
+.current-location__pulse-wrap {
+  position: absolute;
+  left: 19px;
+  top: -1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33.94px;
+  height: 33.94px;
+}
+
+.current-location__pulse-wrap img {
+  width: 24px;
+  height: 24px;
+  animation: pulse-spin 1.6s linear infinite;
+}
+
+@keyframes pulse-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.current-location__status {
+  position: absolute;
+  left: 56px;
+  top: 0;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #f5741e;
+  white-space: nowrap;
+}
+
+/* 주변 공간을 인식하고 있어요 */
+.current-location__title {
+  position: absolute;
+  z-index: 2;
+  top: 240px;
+  left: 24px;
+  margin: 0;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #000;
+}
+
+/* Group 900 — loading.svg (379×382) */
+.current-location__radar {
+  position: absolute;
+  left: 16px;
+  top: 458px;
+  width: 379px;
+  height: 382px;
+  pointer-events: none;
+}
+
+.current-location__radar img {
+  display: block;
+  width: 379px;
+  height: 382px;
+  max-width: none;
+}
+
+.radar-fx {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.current-location[hidden] .radar-fx * {
+  animation-play-state: paused;
+}
+
+.radar-fx__beam,
+.radar-fx__core,
+.radar-fx__ring,
+.radar-fx__sparkle {
+  mix-blend-mode: screen;
+}
+
+/* Figma loading.svg: beam rect x=188 y=0 w=4 h=220 */
+.radar-fx__beam {
+  position: absolute;
+  left: 188px;
+  top: 0;
+  width: 4px;
+  height: 220px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.95));
+  transform-origin: 50% 100%;
+  animation: radar-beam-rise 2.5s ease-in-out infinite;
+}
+
+/* Figma: center glow ellipse cx=190 cy=219.5 */
+.radar-fx__core {
+  position: absolute;
+  left: 176px;
+  top: 211px;
+  width: 28px;
+  height: 17px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #ffffff 0%, rgba(245, 116, 30, 0.85) 100%);
+  animation: radar-core-pulse 2.5s ease-in-out infinite;
+}
+
+/* Figma ring sizes from prior layout (91×57, 183×114, 261×170) */
+.radar-fx__ring {
+  position: absolute;
+  left: 190px;
+  top: 260px;
+  border: 1px dashed rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.35);
+  opacity: 0;
+  animation: radar-ring-spread 2.5s ease-out infinite;
+}
+
+.radar-fx__ring--1 {
+  width: 91px;
+  height: 57px;
+  animation-delay: 0s;
+}
+
+.radar-fx__ring--2 {
+  width: 183px;
+  height: 114px;
+  animation-delay: 0.55s;
+}
+
+.radar-fx__ring--3 {
+  width: 261px;
+  height: 170px;
+  animation-delay: 1.1s;
+}
+
+/* Figma sparkle filter circle centers */
+.radar-fx__sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.95);
+  animation: radar-sparkle 2.5s ease-in-out infinite;
+}
+
+.radar-fx__sparkle--1 {
+  left: 361px;
+  top: 185px;
+  animation-delay: 0.1s;
+}
+
+.radar-fx__sparkle--2 {
+  left: 234px;
+  top: 336px;
+  animation-delay: 0.45s;
+}
+
+.radar-fx__sparkle--3 {
+  left: 261px;
+  top: 190px;
+  animation-delay: 0.8s;
+}
+
+.radar-fx__sparkle--4 {
+  left: 248px;
+  top: 183px;
+  animation-delay: 1.15s;
+}
+
+.radar-fx__sparkle--5 {
+  left: 74px;
+  top: 326px;
+  animation-delay: 0.3s;
+}
+
+.radar-fx__sparkle--6 {
+  left: 86px;
+  top: 140px;
+  animation-delay: 0.65s;
+}
+
+.radar-fx__sparkle--7 {
+  left: 132px;
+  top: 266px;
+  animation-delay: 1s;
+}
+
+.radar-fx__sparkle--8 {
+  left: 56px;
+  top: 175px;
+  animation-delay: 1.35s;
+}
+
+@keyframes radar-beam-rise {
+  0% {
+    transform: scaleY(0.15);
+    opacity: 0.25;
+  }
+  35% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  70% {
+    transform: scaleY(1);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scaleY(0.2);
+    opacity: 0.2;
+  }
+}
+
+@keyframes radar-core-pulse {
+  0%,
+  100% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes radar-ring-spread {
+  0% {
+    transform: translate(-50%, -50%) scale(0.35);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes radar-sparkle {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(0.6);
+    opacity: 0.15;
+  }
+  40% {
+    transform: translate(0, -3px) scale(1);
+    opacity: 1;
+  }
+  70% {
+    transform: translate(2px, -5px) scale(0.85);
+    opacity: 0.55;
+  }
+}

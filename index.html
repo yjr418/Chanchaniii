@@ -1,0 +1,1165 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>눈송 네비</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=Roboto:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/status-bar.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/current-location.css" />
+    <link rel="stylesheet" href="css/check-location.css" />
+    <link rel="stylesheet" href="css/voice-waiting.css" />
+    <link rel="stylesheet" href="css/voice-speaking.css" />
+    <link rel="stylesheet" href="css/searching-path.css" />
+    <link rel="stylesheet" href="css/transfer-guide.css" />
+    <link rel="stylesheet" href="css/transfer-guide-finish.css" />
+    <link rel="stylesheet" href="css/select-exit.css" />
+    <link rel="stylesheet" href="css/settings.css" />
+  </head>
+  <body>
+    <!-- 09_home — Figma node 80:2613 -->
+    <div
+      id="screen-home"
+      class="screen home is-active"
+      data-node-id="80:2613"
+      data-name="09_home"
+    >
+      <div class="home__bg-ellipse" data-node-id="80:2614" aria-hidden="true">
+        <img src="" alt="" data-asset="bgEllipse" />
+      </div>
+
+      <header class="status-bar" data-node-id="80:2615" aria-hidden="true">
+        <div class="status-bar__shell">
+          <div class="status-bar__status" data-name="Status">
+            <div class="status-bar__time-block" data-name="Time &amp; Date">
+              <p class="status-bar__time">9:30</p>
+            </div>
+            <div class="status-bar__icons-block" data-name="Status Icons">
+              <div class="status-bar__wifi-network" data-name="Wi-Fi Network">
+                <div class="status-bar__icon status-bar__icon--wifi" data-name="Wifi">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--wifi" data-name="signal">
+                    <img src="" alt="" data-asset="wifi" />
+                  </div>
+                </div>
+                <div class="status-bar__icon status-bar__icon--signal" data-name="Signal">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--signal" data-name="Vector">
+                    <img src="" alt="" data-asset="signal" />
+                  </div>
+                </div>
+              </div>
+              <div class="status-bar__battery-block" data-name="Battery">
+                <div class="status-bar__icon status-bar__icon--battery" data-name="Battery">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--battery" data-name="Base">
+                    <img src="" alt="" data-asset="battery" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="status-bar__camera" data-name="Camera">
+              <span class="status-bar__camera-dot" data-name="Camera"></span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <button
+        type="button"
+        class="fab fab--settings"
+        data-node-id="102:664"
+        aria-label="설정"
+      >
+        <span class="fab-settings__icon" aria-hidden="true">
+          <span class="fab-settings__pad">
+            <img src="" alt="" data-asset="settings" />
+          </span>
+        </span>
+      </button>
+
+      <h1 class="home__greeting" data-node-id="80:2620">
+        눈송님,<br />
+        어디로 가시나요?
+      </h1>
+
+      <div class="home__cards">
+        <button
+          type="button"
+          class="home__card home__card--transfer"
+          data-node-id="80:2616"
+          data-goto="current-location"
+          data-after-check="voice-waiting"
+          aria-label="환승하러 가기"
+        >
+          <span class="home__card-label" data-node-id="80:2621">환승하러 가기</span>
+          <span class="home__card-art" data-node-id="80:2623">
+            <img src="" alt="" data-asset="train" />
+          </span>
+        </button>
+
+        <button
+          type="button"
+          class="home__card home__card--exit"
+          data-node-id="80:2618"
+          data-goto="select-exit"
+          data-after-check="searching-path"
+          aria-label="출구 찾기"
+        >
+          <span class="home__card-label" data-node-id="80:2622">출구 찾기</span>
+          <span class="home__card-art" data-node-id="80:2630">
+            <img src="" alt="" data-asset="exit" />
+          </span>
+        </button>
+
+        <button
+          type="button"
+          class="home__card home__card--elevator"
+          data-node-id="80:2617"
+          data-goto="current-location"
+          data-after-check="searching-path"
+          aria-label="엘리베이터 찾기"
+        >
+          <span class="home__card-label" data-node-id="80:2636">엘리베이터 찾기</span>
+          <span class="home__card-art" data-node-id="80:2638">
+            <img src="" alt="" data-asset="elevator" />
+          </span>
+        </button>
+
+        <button
+          type="button"
+          class="home__card home__card--restroom"
+          data-node-id="80:2619"
+          data-goto="current-location"
+          data-after-check="searching-path"
+          aria-label="화장실 찾기"
+        >
+          <span class="home__card-label" data-node-id="80:2637">화장실 찾기</span>
+          <span class="home__card-art" data-node-id="80:2643">
+            <img src="" alt="" data-asset="restroom" />
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 10_current location — Figma node 80:2653 -->
+    <div
+      id="screen-current-location"
+      class="screen current-location"
+      data-node-id="80:2653"
+      data-name="10_current location"
+      hidden
+    >
+      <div class="current-location__bg-ellipse" data-node-id="80:2654" aria-hidden="true">
+        <img src="" alt="" data-asset="bgEllipse" />
+      </div>
+
+      <header class="status-bar" data-node-id="80:2655" aria-hidden="true">
+        <div class="status-bar__shell">
+          <div class="status-bar__status" data-name="Status">
+            <div class="status-bar__time-block" data-name="Time &amp; Date">
+              <p class="status-bar__time">9:30</p>
+            </div>
+            <div class="status-bar__icons-block" data-name="Status Icons">
+              <div class="status-bar__wifi-network" data-name="Wi-Fi Network">
+                <div class="status-bar__icon status-bar__icon--wifi" data-name="Wifi">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--wifi" data-name="signal">
+                    <img src="" alt="" data-asset="wifi" />
+                  </div>
+                </div>
+                <div class="status-bar__icon status-bar__icon--signal" data-name="Signal">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--signal" data-name="Vector">
+                    <img src="" alt="" data-asset="signal" />
+                  </div>
+                </div>
+              </div>
+              <div class="status-bar__battery-block" data-name="Battery">
+                <div class="status-bar__icon status-bar__icon--battery" data-name="Battery">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--battery" data-name="Base">
+                    <img src="" alt="" data-asset="battery" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="status-bar__camera" data-name="Camera">
+              <span class="status-bar__camera-dot" data-name="Camera"></span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <button
+        type="button"
+        id="btn-back"
+        class="fab fab--back"
+        data-node-id="102:657"
+        aria-label="뒤로 가기"
+      >
+        <!-- Figma Frame 182 → Arrow 12 (80:3449): rotate 180° + inset 패딩 -->
+        <span class="fab-back__center" aria-hidden="true">
+          <span class="fab-back__rotate">
+            <span class="fab-back__slot">
+              <span class="fab-back__pad">
+                <img src="" alt="" data-asset="backArrow" data-node-id="80:3449" />
+              </span>
+            </span>
+          </span>
+        </span>
+      </button>
+
+      <button
+        type="button"
+        class="fab fab--settings"
+        data-node-id="102:658"
+        aria-label="설정"
+      >
+        <span class="fab-settings__icon" aria-hidden="true">
+          <span class="fab-settings__pad">
+            <img src="" alt="" data-asset="settings" />
+          </span>
+        </span>
+      </button>
+
+      <div class="current-location__status-row">
+        <div class="current-location__pulse-wrap" data-node-id="80:2662">
+          <img src="" alt="" data-asset="locationPulse" />
+        </div>
+        <p class="current-location__status" data-node-id="80:2661">위치 인식 중...</p>
+      </div>
+
+      <h1 class="current-location__title" data-node-id="80:2660">
+        주변 공간을<br />
+        인식하고 있어요
+      </h1>
+
+      <div class="current-location__radar" data-node-id="80:2663" aria-hidden="true">
+        <img src="" alt="" data-asset="loading" data-node-id="80:2663" />
+        <div class="radar-fx" aria-hidden="true">
+          <span class="radar-fx__beam"></span>
+          <span class="radar-fx__core"></span>
+          <span class="radar-fx__ring radar-fx__ring--1"></span>
+          <span class="radar-fx__ring radar-fx__ring--2"></span>
+          <span class="radar-fx__ring radar-fx__ring--3"></span>
+          <span class="radar-fx__sparkle radar-fx__sparkle--1"></span>
+          <span class="radar-fx__sparkle radar-fx__sparkle--2"></span>
+          <span class="radar-fx__sparkle radar-fx__sparkle--3"></span>
+          <span class="radar-fx__sparkle radar-fx__sparkle--4"></span>
+          <span class="radar-fx__sparkle radar-fx__sparkle--5"></span>
+          <span class="radar-fx__sparkle radar-fx__sparkle--6"></span>
+          <span class="radar-fx__sparkle radar-fx__sparkle--7"></span>
+          <span class="radar-fx__sparkle radar-fx__sparkle--8"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11_check location -->
+    <div
+      id="screen-check-location"
+      class="screen check-location"
+      data-name="11_check location"
+      hidden
+    >
+      <div class="check-location__bg-ellipse" aria-hidden="true">
+        <img src="" alt="" data-asset="bgEllipse" />
+      </div>
+
+      <header class="status-bar" aria-hidden="true">
+        <div class="status-bar__shell">
+          <div class="status-bar__status" data-name="Status">
+            <div class="status-bar__time-block" data-name="Time &amp; Date">
+              <p class="status-bar__time">9:30</p>
+            </div>
+            <div class="status-bar__icons-block" data-name="Status Icons">
+              <div class="status-bar__wifi-network" data-name="Wi-Fi Network">
+                <div class="status-bar__icon status-bar__icon--wifi" data-name="Wifi">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--wifi" data-name="signal">
+                    <img src="" alt="" data-asset="wifi" />
+                  </div>
+                </div>
+                <div class="status-bar__icon status-bar__icon--signal" data-name="Signal">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--signal" data-name="Vector">
+                    <img src="" alt="" data-asset="signal" />
+                  </div>
+                </div>
+              </div>
+              <div class="status-bar__battery-block" data-name="Battery">
+                <div class="status-bar__icon status-bar__icon--battery" data-name="Battery">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--battery" data-name="Base">
+                    <img src="" alt="" data-asset="battery" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="status-bar__camera" data-name="Camera">
+              <span class="status-bar__camera-dot" data-name="Camera"></span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <button
+        type="button"
+        id="btn-back-check"
+        class="fab fab--back"
+        aria-label="뒤로 가기"
+      >
+        <span class="fab-back__center" aria-hidden="true">
+          <span class="fab-back__rotate">
+            <span class="fab-back__slot">
+              <span class="fab-back__pad">
+                <img src="" alt="" data-asset="backArrow" />
+              </span>
+            </span>
+          </span>
+        </span>
+      </button>
+
+      <button type="button" class="fab fab--settings" aria-label="설정">
+        <span class="fab-settings__icon" aria-hidden="true">
+          <span class="fab-settings__pad">
+            <img src="" alt="" data-asset="settings" />
+          </span>
+        </span>
+      </button>
+
+      <div class="check-location__station-row">
+        <span class="check-location__pin" aria-hidden="true">
+          <img src="" alt="" data-asset="locationIcon" />
+        </span>
+        <p class="check-location__label">현재 위치</p>
+      </div>
+
+      <h1 class="check-location__station-name">강남역 2호선</h1>
+      <p class="check-location__station-detail">내선순환 · 3-2</p>
+
+      <div class="check-location__photo" aria-hidden="true">
+        <img src="" alt="" data-asset="locationPhoto" />
+      </div>
+
+      <button type="button" class="check-location__confirm" aria-pressed="false">맞아요</button>
+      <button type="button" class="check-location__voice">위치 수정하기</button>
+    </div>
+
+    <!-- 12_voice waiting -->
+    <div
+      id="screen-voice-waiting"
+      class="screen voice-waiting"
+      data-name="12_voice waiting"
+      hidden
+    >
+      <div class="voice-waiting__bg" aria-hidden="true"></div>
+
+      <header class="status-bar" aria-hidden="true">
+        <div class="status-bar__shell">
+          <div class="status-bar__status" data-name="Status">
+            <div class="status-bar__time-block" data-name="Time &amp; Date">
+              <p class="status-bar__time">9:30</p>
+            </div>
+            <div class="status-bar__icons-block" data-name="Status Icons">
+              <div class="status-bar__wifi-network" data-name="Wi-Fi Network">
+                <div class="status-bar__icon status-bar__icon--wifi" data-name="Wifi">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--wifi" data-name="signal">
+                    <img src="" alt="" data-asset="wifi" />
+                  </div>
+                </div>
+                <div class="status-bar__icon status-bar__icon--signal" data-name="Signal">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--signal" data-name="Vector">
+                    <img src="" alt="" data-asset="signal" />
+                  </div>
+                </div>
+              </div>
+              <div class="status-bar__battery-block" data-name="Battery">
+                <div class="status-bar__icon status-bar__icon--battery" data-name="Battery">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--battery" data-name="Base">
+                    <img src="" alt="" data-asset="battery" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="status-bar__camera" data-name="Camera">
+              <span class="status-bar__camera-dot" data-name="Camera"></span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <button
+        type="button"
+        id="btn-back-voice-waiting"
+        class="fab fab--back"
+        aria-label="뒤로 가기"
+      >
+        <span class="fab-back__center" aria-hidden="true">
+          <span class="fab-back__rotate">
+            <span class="fab-back__slot">
+              <span class="fab-back__pad">
+                <img src="" alt="" data-asset="backArrow" />
+              </span>
+            </span>
+          </span>
+        </span>
+      </button>
+
+      <button type="button" class="fab fab--settings" aria-label="설정">
+        <span class="fab-settings__icon" aria-hidden="true">
+          <span class="fab-settings__pad">
+            <img src="" alt="" data-asset="settings" />
+          </span>
+        </span>
+      </button>
+
+      <div class="voice-waiting__vui" aria-hidden="true">
+        <img
+          class="voice-waiting__radar"
+          src=""
+          alt=""
+          data-asset="voiceWaitingRadar"
+        />
+        <img
+          class="voice-waiting__center"
+          src=""
+          alt=""
+          data-asset="voiceWaitingCenter"
+        />
+      </div>
+
+      <p class="voice-waiting__prompt" id="voice-waiting-prompt">목적지를 말씀해 주세요</p>
+    </div>
+
+    <!-- 12_voice speaking (active) -->
+    <div
+      id="screen-voice-speaking"
+      class="screen voice-speaking"
+      data-name="12_voice speaking"
+      hidden
+    >
+      <div class="voice-speaking__bg" aria-hidden="true"></div>
+
+      <header class="status-bar" aria-hidden="true">
+        <div class="status-bar__shell">
+          <div class="status-bar__status" data-name="Status">
+            <div class="status-bar__time-block" data-name="Time &amp; Date">
+              <p class="status-bar__time">9:30</p>
+            </div>
+            <div class="status-bar__icons-block" data-name="Status Icons">
+              <div class="status-bar__wifi-network" data-name="Wi-Fi Network">
+                <div class="status-bar__icon status-bar__icon--wifi" data-name="Wifi">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--wifi" data-name="signal">
+                    <img src="" alt="" data-asset="wifi" />
+                  </div>
+                </div>
+                <div class="status-bar__icon status-bar__icon--signal" data-name="Signal">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--signal" data-name="Vector">
+                    <img src="" alt="" data-asset="signal" />
+                  </div>
+                </div>
+              </div>
+              <div class="status-bar__battery-block" data-name="Battery">
+                <div class="status-bar__icon status-bar__icon--battery" data-name="Battery">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--battery" data-name="Base">
+                    <img src="" alt="" data-asset="battery" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="status-bar__camera" data-name="Camera">
+              <span class="status-bar__camera-dot" data-name="Camera"></span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <button
+        type="button"
+        id="btn-back-voice"
+        class="fab fab--back"
+        aria-label="뒤로 가기"
+      >
+        <span class="fab-back__center" aria-hidden="true">
+          <span class="fab-back__rotate">
+            <span class="fab-back__slot">
+              <span class="fab-back__pad">
+                <img src="" alt="" data-asset="backArrow" />
+              </span>
+            </span>
+          </span>
+        </span>
+      </button>
+
+      <button type="button" class="fab fab--settings" aria-label="설정">
+        <span class="fab-settings__icon" aria-hidden="true">
+          <span class="fab-settings__pad">
+            <img src="" alt="" data-asset="settings" />
+          </span>
+        </span>
+      </button>
+
+      <div class="voice-speaking__vui" aria-hidden="true">
+        <img
+          class="voice-speaking__ring voice-speaking__ring--1"
+          src=""
+          alt=""
+          data-asset="voiceRing"
+        />
+        <img
+          class="voice-speaking__ring voice-speaking__ring--2"
+          src=""
+          alt=""
+          data-asset="voiceRing"
+        />
+        <img
+          class="voice-speaking__radar"
+          src=""
+          alt=""
+          data-asset="voiceRadar"
+        />
+        <img
+          class="voice-speaking__center"
+          src=""
+          alt=""
+          data-asset="voiceCenter"
+        />
+      </div>
+
+      <p class="voice-speaking__text" id="voice-speaking-text" aria-live="polite" hidden></p>
+    </div>
+
+    <!-- 13_searching path -->
+    <div
+      id="screen-searching-path"
+      class="screen searching-path"
+      data-name="13_searching path"
+      hidden
+    >
+      <div class="searching-path__bg" aria-hidden="true"></div>
+
+      <header class="status-bar" aria-hidden="true">
+        <div class="status-bar__shell">
+          <div class="status-bar__status" data-name="Status">
+            <div class="status-bar__time-block" data-name="Time &amp; Date">
+              <p class="status-bar__time">9:30</p>
+            </div>
+            <div class="status-bar__icons-block" data-name="Status Icons">
+              <div class="status-bar__wifi-network" data-name="Wi-Fi Network">
+                <div class="status-bar__icon status-bar__icon--wifi" data-name="Wifi">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--wifi" data-name="signal">
+                    <img src="" alt="" data-asset="wifi" />
+                  </div>
+                </div>
+                <div class="status-bar__icon status-bar__icon--signal" data-name="Signal">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--signal" data-name="Vector">
+                    <img src="" alt="" data-asset="signal" />
+                  </div>
+                </div>
+              </div>
+              <div class="status-bar__battery-block" data-name="Battery">
+                <div class="status-bar__icon status-bar__icon--battery" data-name="Battery">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--battery" data-name="Base">
+                    <img src="" alt="" data-asset="battery" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="status-bar__camera" data-name="Camera">
+              <span class="status-bar__camera-dot" data-name="Camera"></span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <button
+        type="button"
+        id="btn-back-searching"
+        class="fab fab--back"
+        aria-label="뒤로 가기"
+      >
+        <span class="fab-back__center" aria-hidden="true">
+          <span class="fab-back__rotate">
+            <span class="fab-back__slot">
+              <span class="fab-back__pad">
+                <img src="" alt="" data-asset="backArrow" />
+              </span>
+            </span>
+          </span>
+        </span>
+      </button>
+
+      <button type="button" class="fab fab--settings" aria-label="설정">
+        <span class="fab-settings__icon" aria-hidden="true">
+          <span class="fab-settings__pad">
+            <img src="" alt="" data-asset="settings" />
+          </span>
+        </span>
+      </button>
+
+      <div class="searching-path__loader" aria-hidden="true">
+        <img
+          class="searching-path__radar searching-path__radar--1"
+          src="assets/images/loading-2-radar-1.svg"
+          alt=""
+        />
+        <img
+          class="searching-path__radar searching-path__radar--2"
+          src="assets/images/loading-2-radar-2.svg"
+          alt=""
+        />
+        <img
+          class="searching-path__ring searching-path__ring--1"
+          src="assets/images/loading-2-ring-1.svg"
+          alt=""
+        />
+        <img
+          class="searching-path__ring searching-path__ring--2"
+          src="assets/images/loading-2-ring-2.svg"
+          alt=""
+        />
+        <img
+          class="searching-path__mini searching-path__mini--1"
+          src="assets/images/loading-2-radar-mini.svg"
+          alt=""
+        />
+        <img
+          class="searching-path__mini searching-path__mini--2"
+          src="assets/images/loading-2-radar-mini.svg"
+          alt=""
+        />
+        <img
+          class="searching-path__mini searching-path__mini--3"
+          src="assets/images/loading-2-radar-mini.svg"
+          alt=""
+        />
+        <img
+          class="searching-path__mini searching-path__mini--4"
+          src="assets/images/loading-2-radar-mini.svg"
+          alt=""
+        />
+        <img
+          class="searching-path__center"
+          src="assets/images/loading-2-center.svg"
+          alt=""
+        />
+      </div>
+
+      <p class="searching-path__status">경로 탐색 중...</p>
+    </div>
+
+    <!-- 14_transfer_guide (1) -->
+    <div
+      id="screen-transfer-guide-1"
+      class="screen transfer-guide transfer-guide--step1"
+      data-name="14_transfer_guide (1)"
+      hidden
+    >
+      <img
+        class="transfer-guide__scene"
+        src="assets/images/14_transfer_guide_bg(1).png"
+        alt=""
+      />
+
+      <header class="status-bar" aria-hidden="true">
+        <div class="status-bar__shell">
+          <div class="status-bar__status" data-name="Status">
+            <div class="status-bar__time-block" data-name="Time &amp; Date">
+              <p class="status-bar__time">9:30</p>
+            </div>
+            <div class="status-bar__icons-block" data-name="Status Icons">
+              <div class="status-bar__wifi-network" data-name="Wi-Fi Network">
+                <div class="status-bar__icon status-bar__icon--wifi" data-name="Wifi">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--wifi" data-name="signal">
+                    <img src="" alt="" data-asset="wifi" />
+                  </div>
+                </div>
+                <div class="status-bar__icon status-bar__icon--signal" data-name="Signal">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--signal" data-name="Vector">
+                    <img src="" alt="" data-asset="signal" />
+                  </div>
+                </div>
+              </div>
+              <div class="status-bar__battery-block" data-name="Battery">
+                <div class="status-bar__icon status-bar__icon--battery" data-name="Battery">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--battery" data-name="Base">
+                    <img src="" alt="" data-asset="battery" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="status-bar__camera" data-name="Camera">
+              <span class="status-bar__camera-dot" data-name="Camera"></span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <button
+        type="button"
+        id="btn-back-transfer-1"
+        class="fab fab--back"
+        aria-label="뒤로 가기"
+      >
+        <span class="fab-back__center" aria-hidden="true">
+          <span class="fab-back__rotate">
+            <span class="fab-back__slot">
+              <span class="fab-back__pad">
+                <img src="" alt="" data-asset="backArrow" />
+              </span>
+            </span>
+          </span>
+        </span>
+      </button>
+
+      <button type="button" class="fab fab--settings" aria-label="설정">
+        <span class="fab-settings__icon" aria-hidden="true">
+          <span class="fab-settings__pad">
+            <img src="" alt="" data-asset="settings" />
+          </span>
+        </span>
+      </button>
+
+      <aside class="transfer-guide__sheet" id="transfer-guide-1-sheet">
+        <div class="transfer-guide__sheet-view transfer-guide__sheet-view--peek">
+          <div class="transfer-guide__handle" aria-hidden="true"></div>
+          <div class="transfer-guide__row">
+            <img
+              class="transfer-guide__avatar"
+              src="assets/images/setup-avatar.svg"
+              alt=""
+            />
+            <p class="transfer-guide__instruction">정면으로 직진</p>
+            <button
+              type="button"
+              class="transfer-guide__next transfer-guide__next--compact"
+              aria-pressed="false"
+            >
+              다음
+            </button>
+          </div>
+        </div>
+
+        <div class="transfer-guide__sheet-view transfer-guide__sheet-view--expanded">
+          <div class="transfer-guide__handle" aria-hidden="true"></div>
+          <div class="transfer-guide__expanded-body">
+            <img
+              class="transfer-guide__avatar"
+              src="assets/images/setup-avatar.svg"
+              alt=""
+            />
+            <div class="transfer-guide__detail">
+              <p class="transfer-guide__instruction transfer-guide__instruction--expanded">
+                정면으로 직진하세요
+              </p>
+              <p class="transfer-guide__distance">약 30걸음</p>
+              <button type="button" class="transfer-guide__replay" aria-pressed="false">
+                <span class="transfer-guide__replay-icon" aria-hidden="true">↻</span>
+                다시 듣기
+              </button>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="transfer-guide__next transfer-guide__next--full"
+            aria-pressed="false"
+          >
+            다음
+          </button>
+        </div>
+      </aside>
+    </div>
+
+    <!-- 14_transfer_guide (2) -->
+    <div
+      id="screen-transfer-guide-2"
+      class="screen transfer-guide transfer-guide--step2"
+      data-name="14_transfer_guide (2)"
+      hidden
+    >
+      <img
+        class="transfer-guide__scene"
+        src="assets/images/14_transfer_guide_bg(2).png"
+        alt=""
+      />
+
+      <header class="status-bar" aria-hidden="true">
+        <div class="status-bar__shell">
+          <div class="status-bar__status" data-name="Status">
+            <div class="status-bar__time-block" data-name="Time &amp; Date">
+              <p class="status-bar__time">9:30</p>
+            </div>
+            <div class="status-bar__icons-block" data-name="Status Icons">
+              <div class="status-bar__wifi-network" data-name="Wi-Fi Network">
+                <div class="status-bar__icon status-bar__icon--wifi" data-name="Wifi">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--wifi" data-name="signal">
+                    <img src="" alt="" data-asset="wifi" />
+                  </div>
+                </div>
+                <div class="status-bar__icon status-bar__icon--signal" data-name="Signal">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--signal" data-name="Vector">
+                    <img src="" alt="" data-asset="signal" />
+                  </div>
+                </div>
+              </div>
+              <div class="status-bar__battery-block" data-name="Battery">
+                <div class="status-bar__icon status-bar__icon--battery" data-name="Battery">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--battery" data-name="Base">
+                    <img src="" alt="" data-asset="battery" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="status-bar__camera" data-name="Camera">
+              <span class="status-bar__camera-dot" data-name="Camera"></span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <button
+        type="button"
+        id="btn-back-transfer-2"
+        class="fab fab--back"
+        aria-label="뒤로 가기"
+      >
+        <span class="fab-back__center" aria-hidden="true">
+          <span class="fab-back__rotate">
+            <span class="fab-back__slot">
+              <span class="fab-back__pad">
+                <img src="" alt="" data-asset="backArrow" />
+              </span>
+            </span>
+          </span>
+        </span>
+      </button>
+
+      <button type="button" class="fab fab--settings" aria-label="설정">
+        <span class="fab-settings__icon" aria-hidden="true">
+          <span class="fab-settings__pad">
+            <img src="" alt="" data-asset="settings" />
+          </span>
+        </span>
+      </button>
+
+      <aside class="transfer-guide__sheet">
+        <div class="transfer-guide__sheet-view transfer-guide__sheet-view--peek">
+          <div class="transfer-guide__handle" aria-hidden="true"></div>
+          <div class="transfer-guide__row">
+            <img
+              class="transfer-guide__avatar"
+              src="assets/images/setup-avatar.svg"
+              alt=""
+            />
+            <p class="transfer-guide__instruction">왼쪽 열차 탑승</p>
+            <button
+              type="button"
+              class="transfer-guide__next transfer-guide__next--compact"
+              aria-pressed="false"
+            >
+              다음
+            </button>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- 17_select_exit -->
+    <div
+      id="screen-select-exit"
+      class="screen select-exit"
+      data-name="17_select_exit"
+      hidden
+    >
+      <header class="status-bar" aria-hidden="true">
+        <div class="status-bar__shell">
+          <div class="status-bar__status" data-name="Status">
+            <div class="status-bar__time-block" data-name="Time &amp; Date">
+              <p class="status-bar__time">9:30</p>
+            </div>
+            <div class="status-bar__icons-block" data-name="Status Icons">
+              <div class="status-bar__wifi-network" data-name="Wi-Fi Network">
+                <div class="status-bar__icon status-bar__icon--wifi" data-name="Wifi">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--wifi" data-name="signal">
+                    <img src="" alt="" data-asset="wifi" />
+                  </div>
+                </div>
+                <div class="status-bar__icon status-bar__icon--signal" data-name="Signal">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--signal" data-name="Vector">
+                    <img src="" alt="" data-asset="signal" />
+                  </div>
+                </div>
+              </div>
+              <div class="status-bar__battery-block" data-name="Battery">
+                <div class="status-bar__icon status-bar__icon--battery" data-name="Battery">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--battery" data-name="Base">
+                    <img src="" alt="" data-asset="battery" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="status-bar__camera" data-name="Camera">
+              <span class="status-bar__camera-dot" data-name="Camera"></span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <button
+        type="button"
+        id="btn-back-select-exit"
+        class="fab fab--back"
+        aria-label="뒤로 가기"
+      >
+        <span class="fab-back__center" aria-hidden="true">
+          <span class="fab-back__rotate">
+            <span class="fab-back__slot">
+              <span class="fab-back__pad">
+                <img src="" alt="" data-asset="backArrow" />
+              </span>
+            </span>
+          </span>
+        </span>
+      </button>
+
+      <button type="button" class="fab fab--settings" aria-label="설정">
+        <span class="fab-settings__icon" aria-hidden="true">
+          <span class="fab-settings__pad">
+            <img src="" alt="" data-asset="settings" />
+          </span>
+        </span>
+      </button>
+
+      <div class="select-exit__body">
+        <h1 class="select-exit__title">출구를 선택해 주세요</h1>
+
+        <div class="select-exit__grid" role="group" aria-label="출구 선택">
+          <button type="button" class="select-exit__exit" data-exit="1" aria-pressed="false" aria-label="1번 출구">1번</button>
+          <button type="button" class="select-exit__exit" data-exit="2" aria-pressed="false" aria-label="2번 출구">2번</button>
+          <button type="button" class="select-exit__exit" data-exit="3" aria-pressed="false" aria-label="3번 출구">3번</button>
+          <button type="button" class="select-exit__exit" data-exit="4" aria-pressed="false" aria-label="4번 출구">4번</button>
+          <button type="button" class="select-exit__exit" data-exit="5" aria-pressed="false" aria-label="5번 출구">5번</button>
+          <button type="button" class="select-exit__exit" data-exit="6" aria-pressed="false" aria-label="6번 출구">6번</button>
+          <button type="button" class="select-exit__exit" data-exit="7" aria-pressed="false" aria-label="7번 출구">7번</button>
+          <button type="button" class="select-exit__exit" data-exit="8" aria-pressed="false" aria-label="8번 출구">8번</button>
+          <button type="button" class="select-exit__exit" data-exit="9" aria-pressed="false" aria-label="9번 출구">9번</button>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="select-exit__start"
+        aria-pressed="false"
+        disabled
+      >
+        안내 시작하기
+      </button>
+    </div>
+
+    <!-- 18_settings -->
+    <div
+      id="screen-settings"
+      class="screen settings"
+      data-name="18_settings"
+      hidden
+    >
+      <header class="status-bar" aria-hidden="true">
+        <div class="status-bar__shell">
+          <div class="status-bar__status" data-name="Status">
+            <div class="status-bar__time-block" data-name="Time &amp; Date">
+              <p class="status-bar__time">9:30</p>
+            </div>
+            <div class="status-bar__icons-block" data-name="Status Icons">
+              <div class="status-bar__wifi-network" data-name="Wi-Fi Network">
+                <div class="status-bar__icon status-bar__icon--wifi" data-name="Wifi">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--wifi" data-name="signal">
+                    <img src="" alt="" data-asset="wifi" />
+                  </div>
+                </div>
+                <div class="status-bar__icon status-bar__icon--signal" data-name="Signal">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--signal" data-name="Vector">
+                    <img src="" alt="" data-asset="signal" />
+                  </div>
+                </div>
+              </div>
+              <div class="status-bar__battery-block" data-name="Battery">
+                <div class="status-bar__icon status-bar__icon--battery" data-name="Battery">
+                  <div class="status-bar__icon-inset status-bar__icon-inset--battery" data-name="Base">
+                    <img src="" alt="" data-asset="battery" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="status-bar__camera" data-name="Camera">
+              <span class="status-bar__camera-dot" data-name="Camera"></span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <button
+        type="button"
+        id="btn-back-settings"
+        class="fab fab--back"
+        aria-label="뒤로 가기"
+      >
+        <span class="fab-back__center" aria-hidden="true">
+          <span class="fab-back__rotate">
+            <span class="fab-back__slot">
+              <span class="fab-back__pad">
+                <img src="" alt="" data-asset="backArrow" />
+              </span>
+            </span>
+          </span>
+        </span>
+      </button>
+
+      <div class="settings__topbar">
+        <h1 class="settings__title">설정</h1>
+      </div>
+
+      <div class="settings__scroll">
+        <div class="settings__profile">
+          <div class="settings__avatar-wrap">
+            <img
+              class="settings__avatar"
+              src="assets/images/setup-avatar.svg"
+              alt="찬찬이 프로필"
+            />
+            <button
+              type="button"
+              class="settings__avatar-edit"
+              data-settings-action="edit-profile"
+              aria-label="프로필 수정"
+              aria-pressed="false"
+            >
+              <img src="assets/icons/setup-pencil.svg" alt="" />
+            </button>
+          </div>
+        </div>
+
+        <div class="settings__card">
+          <button
+            type="button"
+            class="settings__row"
+            data-settings-action="change-avatar"
+          >
+            <span class="settings__icon-box">
+              <img src="assets/icons/setup-change avatar.svg" alt="" />
+            </span>
+            <span class="settings__label">찬찬이 바꾸기</span>
+            <span class="settings__arrow" aria-hidden="true">
+              <img src="assets/icons/setup-arrow.svg" alt="" />
+            </span>
+          </button>
+          <button
+            type="button"
+            class="settings__row"
+            data-settings-action="change-personality"
+          >
+            <span class="settings__icon-box">
+              <img src="assets/icons/setup-change personality.svg" alt="" />
+            </span>
+            <span class="settings__label">찬찬이 성격 바꾸기</span>
+            <span class="settings__arrow" aria-hidden="true">
+              <img src="assets/icons/setup-arrow.svg" alt="" />
+            </span>
+          </button>
+          <button
+            type="button"
+            class="settings__row"
+            data-settings-action="change-name"
+          >
+            <span class="settings__icon-box">
+              <img src="assets/icons/setup-change-name.svg" alt="" />
+            </span>
+            <span class="settings__label">내 이름 바꾸기</span>
+            <span class="settings__arrow" aria-hidden="true">
+              <img src="assets/icons/setup-arrow.svg" alt="" />
+            </span>
+          </button>
+        </div>
+
+        <h2 class="settings__section-title">일반</h2>
+
+        <div class="settings__card">
+          <div class="settings__slider-block">
+            <div class="settings__slider-head">
+              <span class="settings__icon-box">
+                <img src="assets/icons/setup-text.svg" alt="" />
+              </span>
+              <span class="settings__label">텍스트 크기</span>
+            </div>
+            <div class="settings__slider-wrap">
+              <span class="settings__slider-end settings__slider-end--small" aria-hidden="true">Aa</span>
+              <input
+                type="range"
+                id="settings-text-size"
+                class="settings__range"
+                min="0"
+                max="100"
+                value="50"
+                aria-label="텍스트 크기"
+              />
+              <span class="settings__slider-end settings__slider-end--large" aria-hidden="true">Aa</span>
+            </div>
+          </div>
+
+          <div class="settings__slider-block">
+            <div class="settings__slider-head">
+              <span class="settings__icon-box">
+                <img src="assets/icons/setup-volume.svg" alt="" />
+              </span>
+              <span class="settings__label">음량 조절</span>
+            </div>
+            <div class="settings__slider-wrap">
+              <span class="settings__slider-end settings__slider-end--small" aria-hidden="true">
+                <img src="assets/icons/setup-volume-small.svg" alt="" />
+              </span>
+              <input
+                type="range"
+                id="settings-volume"
+                class="settings__range"
+                min="0"
+                max="100"
+                value="50"
+                aria-label="음량 조절"
+              />
+              <span class="settings__slider-end settings__slider-end--large" aria-hidden="true">
+                <img src="assets/icons/setup-volume-big.svg" alt="" />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15_transfer_guide_finish -->
+    <div
+      id="screen-transfer-guide-finish"
+      class="screen transfer-guide-finish"
+      data-name="15_transfer_guide_finish"
+      hidden
+    >
+      <img
+        class="transfer-guide-finish__scene"
+        src="15_transfer_guide_finish.png"
+        alt=""
+      />
+      <button
+        type="button"
+        class="transfer-guide-finish__home"
+        aria-pressed="false"
+      >
+        홈으로
+      </button>
+    </div>
+
+    <script src="js/assets.js"></script>
+    <script src="js/voice-screens.js"></script>
+    <script src="js/transfer-guide.js"></script>
+    <script src="js/transfer-guide-finish.js"></script>
+    <script src="js/select-exit.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

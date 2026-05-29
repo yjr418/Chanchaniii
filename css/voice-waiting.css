@@ -1,0 +1,120 @@
+/* 12_voice waiting — 412×917 */
+.voice-waiting {
+  width: 100%;
+  max-width: 412px;
+  height: 917px;
+  min-height: 917px;
+  margin: 0 auto;
+  background: #f5741e;
+}
+
+.voice-waiting .status-bar {
+  position: absolute;
+}
+
+.voice-waiting__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    #fff9f2 0%,
+    #ffe8c8 22%,
+    #ffc285 48%,
+    #ffb366 72%,
+    #f5741e 100%
+  );
+}
+
+.voice-waiting .fab--back {
+  left: 24px;
+  top: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 28px 18px;
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
+}
+
+.voice-waiting__vui {
+  position: absolute;
+  z-index: 1;
+  top: 300px;
+  left: calc((100% - 368px) / 2);
+  width: 368px;
+  height: 368px;
+}
+
+.voice-waiting__radar {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+  animation: voice-waiting-radar-breathe 6s ease-in-out infinite;
+}
+
+.voice-waiting__center {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 232px;
+  height: 230px;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  display: block;
+  animation: voice-waiting-center-idle 5s ease-in-out infinite;
+}
+
+@keyframes voice-waiting-radar-breathe {
+  0%,
+  100% {
+    transform: scale(0.96);
+    opacity: 0.36;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.5;
+  }
+}
+
+@keyframes voice-waiting-center-idle {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, calc(-50% - 1px)) scale(1.02);
+  }
+}
+
+.voice-waiting__prompt {
+  position: absolute;
+  z-index: 2;
+  top: 656px;
+  left: 24px;
+  right: 24px;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #fff;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voice-waiting__radar,
+  .voice-waiting__center {
+    animation: none;
+  }
+
+  .voice-waiting__radar {
+    opacity: 0.42;
+  }
+}

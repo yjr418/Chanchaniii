@@ -1,0 +1,107 @@
+:root {
+  --color-primary: #f5741e;
+  --color-secondary: #f5a623;
+  --color-surface: #fafaf8;
+  --color-text-secondary: #525252;
+  --color-text-inverse: #ffffff;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-fab: 0 2px 2px rgba(0, 0, 0, 0.08);
+  --font-sans: "Roboto", "Noto Sans KR", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  --app-text-scale: 1;
+  zoom: var(--app-text-scale);
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--font-sans);
+  background: #e8e8e8;
+}
+
+.screen {
+  position: relative;
+  width: 100%;
+  max-width: 412px;
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.screen[hidden] {
+  display: none;
+}
+
+.fab {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: none;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: var(--shadow-fab);
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.fab:hover {
+  filter: brightness(0.98);
+}
+
+.fab:active {
+  transform: scale(0.96);
+}
+
+/* Frame 183 — 설정 (102:658 / 102:664 동일) */
+.fab--settings {
+  top: 72px;
+  left: 332px;
+  right: auto;
+  padding: 14px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.fab-settings__icon {
+  position: relative;
+  display: block;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.fab-settings__pad {
+  position: absolute;
+  inset: 8.33%;
+}
+
+.fab-settings__pad img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}
+
+.fab--back {
+  top: 72px;
+  left: 24px;
+  font-size: 22px;
+  line-height: 1;
+  color: #525252;
+}

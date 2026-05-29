@@ -1,0 +1,64 @@
+/* 15_transfer_guide_finish — 412×917 */
+.transfer-guide-finish {
+  position: relative;
+  width: 100%;
+  max-width: 412px;
+  height: 917px;
+  min-height: 917px;
+  max-height: 917px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.transfer-guide-finish__scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  pointer-events: none;
+  user-select: none;
+}
+
+.transfer-guide-finish__home {
+  position: absolute;
+  z-index: 5;
+  bottom: 56px;
+  left: calc((100% - 348px) / 2);
+  width: 348px;
+  height: 60px;
+  padding: 0;
+  border: none;
+  border-radius: 30px;
+  background: transparent;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  color: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.15s ease;
+}
+
+.transfer-guide-finish__home:hover:not(.is-selected) {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.transfer-guide-finish__home:active {
+  transform: scale(0.98);
+}
+
+.transfer-guide-finish__home.is-selected,
+.transfer-guide-finish__home.is-selected:hover,
+.transfer-guide-finish__home[aria-pressed="true"] {
+  background: #f5741e;
+  color: #fff;
+  filter: none;
+}

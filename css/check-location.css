@@ -1,0 +1,196 @@
+/* Figma: 11_check location — 412×917 */
+.check-location {
+  width: 100%;
+  max-width: 412px;
+  height: 917px;
+  min-height: 917px;
+  margin: 0 auto;
+  background: #fafaf8;
+}
+
+.check-location .status-bar {
+  position: absolute;
+}
+
+.check-location__bg-ellipse {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ffffff 30%,
+    #fff8f0 48%,
+    #ffe8c8 68%,
+    #ffc285 88%,
+    #ffb366 100%
+  );
+}
+
+.check-location__bg-ellipse img {
+  display: none;
+}
+
+/* Frame 182 — back (10번 화면과 동일) */
+.check-location .fab--back {
+  left: 24px;
+  top: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 28px 18px;
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
+}
+
+/* 역 정보 — 현재 위치 + location.svg */
+.check-location__station-row {
+  position: absolute;
+  z-index: 2;
+  top: 192px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+}
+
+.check-location__pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.check-location__pin img {
+  display: block;
+  width: 16px;
+  height: 24px;
+  max-width: none;
+}
+
+.check-location__label {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #f5741e;
+  white-space: nowrap;
+}
+
+.check-location__station-name {
+  position: absolute;
+  z-index: 2;
+  top: 240px;
+  left: 24px;
+  margin: 0;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #000;
+}
+
+.check-location__station-detail {
+  position: absolute;
+  z-index: 2;
+  top: 276px;
+  left: 24px;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #525252;
+}
+
+/* 승강장 사진 — location.png */
+.check-location__photo {
+  position: absolute;
+  z-index: 1;
+  top: 318px;
+  left: calc((100% - 380px) / 2);
+  width: 380px;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.check-location__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 맞아요 — 사진 하단(698px) + 44px 간격 */
+.check-location__confirm {
+  position: absolute;
+  z-index: 2;
+  top: 742px;
+  left: calc((100% - 348px) / 2);
+  width: 348px;
+  height: 60px;
+  padding: 0;
+  border: none;
+  border-radius: 30px;
+  background: #000;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    transform 0.15s ease;
+}
+
+.check-location__confirm:hover:not(.is-selected) {
+  filter: brightness(1.08);
+}
+
+.check-location__confirm:active {
+  transform: scale(0.98);
+  background: #f5741e;
+}
+
+.check-location__confirm.is-selected,
+.check-location__confirm.is-selected:hover,
+.check-location__confirm[aria-pressed="true"] {
+  background: #f5741e;
+  color: #fff;
+  filter: none;
+}
+
+/* 위치 수정하기 — 맞아요 하단(802px) + 11px 간격 */
+.check-location__voice {
+  position: absolute;
+  z-index: 2;
+  top: 813px;
+  left: calc((100% - 348px) / 2);
+  width: 348px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #525252;
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.check-location__voice:hover {
+  color: #000;
+}
