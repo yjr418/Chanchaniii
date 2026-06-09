@@ -1,0 +1,37 @@
+.backButton {
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.backButtonInline {
+  position: relative;
+  z-index: 2;
+  margin: 32px 0 0 24px;
+}
+
+.backButtonOverlay {
+  position: absolute;
+  top: 72px;
+  left: 24px;
+  z-index: 2;
+}
+
+.backButtonIcon {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
+
+.backButton:hover {
+  filter: brightness(0.98);
+}
+
+.backButton:active {
+  transform: scale(0.96);
+}

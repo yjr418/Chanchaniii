@@ -1,0 +1,9 @@
+<svg width="379" height="243" viewBox="0 0 379 243" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <ellipse cx="189.5" cy="200" rx="170" ry="35" fill="url(#floorGlow)" opacity="0.6"/>
+  <defs>
+    <radialGradient id="floorGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#F5741E" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#F5741E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

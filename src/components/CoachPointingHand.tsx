@@ -1,0 +1,29 @@
+import styles from "./CoachPointingHand.module.css";
+
+type CoachPointingHandProps = {
+  className?: string;
+};
+
+const HAND_TAP_PATH =
+  "M7 20C7 18.343 5.657 17 4 17C2.343 17 1 18.343 1 20V27C1 35.284 7.716 42 16 42C24.284 42 31 35.284 31 27V20C31 18.343 29.657 17 28 17C26.343 17 25 18.343 25 20V18C25 16.343 23.657 15 22 15C20.343 15 19 16.343 19 18V16C19 14.343 17.657 13 16 13C14.343 13 13 14.343 13 16V4C13 2.343 11.657 1 10 1C8.343 1 7 2.343 7 4V26V20Z";
+
+export function CoachPointingHand({ className }: CoachPointingHandProps) {
+  return (
+    <svg
+      className={`${styles.hand} ${className ?? ""}`}
+      viewBox="0 0 32 43"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d={HAND_TAP_PATH}
+        stroke="white"
+        strokeWidth="3"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}

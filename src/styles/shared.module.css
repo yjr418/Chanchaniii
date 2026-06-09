@@ -1,0 +1,58 @@
+.screen {
+  position: relative;
+  width: var(--device-width);
+  min-height: var(--device-height);
+  height: var(--device-height);
+  margin: 0 auto;
+  background: #fafaf8;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.nextButton {
+  margin-top: auto;
+  margin-bottom: 56px;
+  margin-left: 32px;
+  margin-right: 32px;
+  width: calc(100% - 64px);
+  height: 60px;
+  border: none;
+  border-radius: 32px;
+  background: #ebebeb;
+  color: #bfbfbf;
+  font-family: inherit;
+  font-size: calc(18px * var(--app-text-scale, 1));
+  font-weight: 500;
+  line-height: 1.3;
+  cursor: not-allowed;
+  transition: background-color 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.nextButtonActive {
+  background: #f5741e;
+  color: #fff;
+  cursor: pointer;
+}
+
+.nextButtonActive:hover {
+  background: #e06618;
+}
+
+.nextButtonActive:active {
+  background: #cc5a15;
+}
+
+.nextButton:disabled {
+  opacity: 1;
+}
+
+@media (max-width: 412px), (max-height: 917px) {
+  .screen {
+    transform: scale(min(calc(100vw / 412), calc(100dvh / 917), 1));
+    transform-origin: center center;
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: chanchani
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GOOGLE_SERVICE_ACCOUNT_JSON
+        sync: false

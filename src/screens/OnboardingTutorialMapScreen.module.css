@@ -1,0 +1,663 @@
+.screen {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+}
+
+.mapLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.mapBgLeft {
+  position: absolute;
+  top: 0;
+  left: -104px;
+  width: 516px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mapBgRight {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 516px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 1s ease;
+}
+
+.overlayFadeOut {
+  opacity: 0;
+}
+
+.topMetaBar {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 28px;
+  z-index: 50;
+  transition: color 0.6s ease;
+}
+
+.instructionBlock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 40px));
+  z-index: 10;
+  width: calc(100% - 64px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.instructionBlockFront {
+  z-index: 30;
+}
+
+.instructionBlockFadeOut {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.stepBadge {
+  position: absolute;
+  bottom: calc(100% + 40px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: calc(13px * var(--app-text-scale, 1));
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition:
+    background-color 0.6s ease,
+    border-color 0.6s ease,
+    color 0.6s ease;
+}
+
+.stepBadgeOnDark {
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(8px);
+  color: #fff;
+}
+
+.stepBadgeOnLight {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #1a1a1a;
+}
+
+.skipButton {
+  position: relative;
+  z-index: 1;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: calc(13px * var(--app-text-scale, 1));
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  padding: 6px 0;
+  flex-shrink: 0;
+  transition: color 0.6s ease;
+}
+
+.skipButtonOnDark {
+  color: #fff;
+}
+
+.skipButtonOnLight {
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+}
+
+.skipButton:active {
+  opacity: 0.75;
+}
+
+.instruction {
+  position: static;
+  transform: none;
+  width: 100%;
+  color: #fff;
+  font-size: calc(30px * var(--app-text-scale, 1));
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.instructionFadeOut {
+  opacity: 0;
+}
+
+.instruction span {
+  display: block;
+}
+
+.instructionLine {
+  white-space: nowrap;
+}
+
+.guidanceCardWrap {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 56px;
+  z-index: 15;
+  overflow: visible;
+}
+
+.guidanceCardWrapExpanded {
+  z-index: 25;
+}
+
+.guidanceCardWrapSwipeable {
+  touch-action: none;
+}
+
+.coachmarkLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.coachmarkSpotlight {
+  position: absolute;
+  right: 44px;
+  bottom: 72px;
+  width: 72px;
+  height: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.55);
+  animation: scrimFadeIn 0.4s ease both;
+}
+
+.coachInstructionText {
+  font-size: calc(32px * var(--app-text-scale, 1));
+  animation: coachInstructionFadeIn 0.45s ease both;
+  pointer-events: none;
+}
+
+@keyframes coachInstructionFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.coachmarkSpotlightCard {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 56px;
+  height: 72px;
+  border-radius: 36px;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.55);
+  animation: scrimFadeIn 0.4s ease both;
+}
+
+.coachmarkSpotlightExpandedCard {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 56px;
+  height: 218px;
+  border-radius: 36px;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.55);
+  animation: scrimFadeIn 0.4s ease both;
+}
+
+.cardTopHighlightWrap {
+  position: absolute;
+  left: 23px;
+  right: 23px;
+  bottom: 51px;
+  height: 82px;
+  border-radius: 41px;
+  animation: cardHighlightPulse 1.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.cardTopHighlight {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 3px solid #f5741e;
+  background: transparent;
+  box-shadow: 0 0 18px rgba(245, 116, 30, 0.6);
+}
+
+.swipeHint {
+  position: absolute;
+  left: 50%;
+  bottom: calc(56px + 72px - 7px - 1.5px + 20px);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: swipeHintMove 1.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.swipeArrowUp {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-right: 2.5px solid rgba(255, 255, 255, 0.85);
+  border-bottom: 2.5px solid rgba(255, 255, 255, 0.85);
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
+  transform: rotate(-135deg);
+}
+
+@keyframes cardHighlightPulse {
+  0%,
+  100% {
+    left: 23px;
+    right: 23px;
+    bottom: 51px;
+    height: 82px;
+    border-radius: 41px;
+    opacity: 0.7;
+  }
+
+  50% {
+    left: 21px;
+    right: 21px;
+    bottom: 49px;
+    height: 86px;
+    border-radius: 43px;
+    opacity: 1;
+  }
+}
+
+@keyframes swipeHintMove {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(5px);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-5px);
+    opacity: 1;
+  }
+}
+
+.coachFingerWrap {
+  position: absolute;
+  right: 30px;
+  bottom: 38px;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  animation: coachFingerTap 1.2s ease-in-out infinite;
+  transform-origin: 55% 85%;
+}
+
+.coachFingerIcon {
+  width: 42px;
+  height: 42px;
+  transform: rotate(-24deg);
+}
+
+.nextButtonHighlight {
+  position: absolute;
+  right: 40px;
+  bottom: 68px;
+  width: 80px;
+  height: 48px;
+  border-radius: 24px;
+  border: 3px solid #f5741e;
+  box-shadow: 0 0 18px rgba(245, 116, 30, 0.6);
+  animation: coachPulse 1.6s ease-in-out infinite;
+}
+
+.nextButtonHighlightOuter {
+  position: absolute;
+  right: 34px;
+  bottom: 62px;
+  width: 92px;
+  height: 56px;
+  border-radius: 28px;
+  border: 2px solid rgba(245, 116, 30, 0.5);
+  box-shadow: 0 0 28px rgba(245, 116, 30, 0.3);
+  animation: coachPulseOuter 1.6s ease-in-out infinite;
+}
+
+.guidanceCardCoach {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.guidanceCard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 72px;
+  padding: 12px 16px;
+  border-radius: 36px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition:
+    height 0.35s ease,
+    padding 0.35s ease,
+    border-radius 0.35s ease;
+}
+
+.guidanceCardExpanded {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 10px;
+  height: 218px;
+  padding: 22px 12px 12px;
+  border-radius: 36px;
+}
+
+.expandedBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 0;
+  width: 100%;
+}
+
+.expandedMain {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  width: 100%;
+}
+
+.expandedContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.expandedAvatarWrap {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffc55f 0%, #ff9d00 100%);
+}
+
+.expandedAvatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.expandedText {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+.expandedTitle {
+  font-size: calc(22px * var(--app-text-scale, 1));
+  font-weight: 600;
+  line-height: 1.4;
+  color: #000;
+}
+
+.expandedMeta {
+  font-size: calc(18px * var(--app-text-scale, 1));
+  font-weight: 500;
+  line-height: 1.4;
+  color: #525252;
+}
+
+.replayButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-family: inherit;
+  font-size: calc(16px * var(--app-text-scale, 1));
+  font-weight: 500;
+  line-height: 1.4;
+  color: #8c8c8c;
+  cursor: pointer;
+}
+
+.replayButton:active {
+  opacity: 0.75;
+}
+
+.replayIcon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.expandedNextButton {
+  flex-shrink: 0;
+  width: 100%;
+  height: 60px;
+  border: none;
+  border-radius: 32px;
+  background: #f5741e;
+  color: #fff;
+  font-family: inherit;
+  font-size: calc(18px * var(--app-text-scale, 1));
+  font-weight: 500;
+  line-height: 1.3;
+  cursor: pointer;
+}
+
+.expandedNextButton:active {
+  background: #cc5a15;
+}
+
+.guidanceCard::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 51px;
+  height: 3px;
+  border-radius: 2px;
+  background: #d6d6d6;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.avatarWrap {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffc55f 0%, #ff9d00 100%);
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.directionText {
+  font-size: calc(22px * var(--app-text-scale, 1));
+  font-weight: 600;
+  line-height: 1.4;
+  color: #000;
+  white-space: nowrap;
+}
+
+.cardNextButton {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 72px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background: #f5741e;
+  color: #fff;
+  font-family: inherit;
+  font-size: calc(16px * var(--app-text-scale, 1));
+  font-weight: 500;
+  line-height: 1.3;
+  cursor: pointer;
+}
+
+.cardNextButtonCoach {
+  animation: coachButtonGlow 1.6s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.cardNextButton:active {
+  background: #cc5a15;
+}
+
+@keyframes scrimFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes coachmarkAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes coachFingerTap {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-6px, -10px);
+  }
+}
+
+@keyframes coachPulse {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes coachPulseOuter {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.65;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes coachButtonGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(26, 26, 26, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(26, 26, 26, 0.28);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay {
+    transition: none;
+  }
+
+  .instruction {
+    transition: none;
+  }
+
+  .guidanceCard {
+    transition: none;
+  }
+
+  .coachmarkSpotlight,
+  .coachmarkSpotlightCard,
+  .coachmarkSpotlightExpandedCard {
+    animation: none;
+  }
+
+  .nextButtonHighlight,
+  .nextButtonHighlightOuter,
+  .coachInstructionText,
+  .coachFingerWrap,
+  .swipeHint,
+  .cardTopHighlightWrap,
+  .cardNextButtonCoach {
+    animation: none;
+  }
+}

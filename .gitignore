@@ -1,0 +1,11 @@
+node_modules
+dist
+.env
+gcp-*.json
+*-service-account.json
+.DS_Store
+.tools
+.merge-temp-remote
+Chanchaniii
+tsconfig.tsbuildinfo
+png

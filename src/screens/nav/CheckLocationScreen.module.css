@@ -1,0 +1,148 @@
+.screen {
+  background: #fafaf8;
+}
+
+.bgEllipse {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ffffff 30%,
+    #fff8f0 48%,
+    #ffe8c8 68%,
+    #ffc285 88%,
+    #ffb366 100%
+  );
+}
+
+.stationRow {
+  position: absolute;
+  z-index: 2;
+  top: 144px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+}
+
+.pin img {
+  display: block;
+  width: 16px;
+  height: 24px;
+}
+
+.label {
+  margin: 0;
+  font-size: calc(20px * var(--app-text-scale, 1));
+  font-weight: 600;
+  line-height: 1.6;
+  color: #f5741e;
+}
+
+.stationName {
+  position: absolute;
+  z-index: 2;
+  top: 192px;
+  left: 24px;
+  margin: 0;
+  font-size: calc(25px * var(--app-text-scale, 1));
+  font-weight: 600;
+  line-height: 1.3;
+  color: #000;
+}
+
+.stationDetail {
+  position: absolute;
+  z-index: 2;
+  top: 232px;
+  left: 24px;
+  margin: 0;
+  font-size: calc(20px * var(--app-text-scale, 1));
+  font-weight: 600;
+  line-height: 1.3;
+  color: #525252;
+}
+
+.photo {
+  position: absolute;
+  z-index: 1;
+  top: 324px;
+  left: 16px;
+  width: 380px;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #e8e8e8;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.actions {
+  position: absolute;
+  z-index: 2;
+  bottom: 56px;
+  left: 32px;
+  width: 348px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.confirm {
+  width: 100%;
+  height: 60px;
+  padding: 0;
+  border: none;
+  border-radius: 32px;
+  background: #f5741e;
+  font-family: inherit;
+  font-size: calc(18px * var(--app-text-scale, 1));
+  font-weight: 500;
+  line-height: 1.3;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+.confirm:hover:not(.confirmSelected) {
+  background: #e06618;
+}
+
+.confirm:active {
+  transform: scale(0.98);
+  background: #f5741e;
+}
+
+.confirmSelected {
+  background: #f5741e;
+}
+
+.revise {
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: calc(16px * var(--app-text-scale, 1));
+  font-weight: 600;
+  line-height: 1.3;
+  color: #525252;
+  text-align: center;
+  cursor: pointer;
+}
+
+.revise:hover {
+  color: #000;
+}

@@ -1,0 +1,52 @@
+.stack {
+  position: relative;
+  width: var(--device-width);
+  height: var(--device-height);
+  margin: 0 auto;
+}
+
+.splashLayer,
+.nameLayer {
+  position: absolute;
+  inset: 0;
+}
+
+.splashLayer {
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 0.7s cubic-bezier(0.33, 0, 0.2, 1);
+  pointer-events: auto;
+}
+
+.splashLayerOut {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nameLayer {
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.7s cubic-bezier(0.33, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.33, 0, 0.2, 1);
+}
+
+.nameLayerIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 412px), (max-height: 917px) {
+  .stack {
+    transform: scale(min(calc(100vw / 412), calc(100dvh / 917), 1));
+    transform-origin: center center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splashLayer,
+  .nameLayer {
+    transition-duration: 0.01ms;
+  }
+}

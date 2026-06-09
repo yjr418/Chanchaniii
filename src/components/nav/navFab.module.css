@@ -1,0 +1,52 @@
+.fab {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: none;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.fab:hover {
+  filter: brightness(0.98);
+}
+
+.fab:active {
+  transform: scale(0.96);
+}
+
+.fabSettings {
+  top: 72px;
+  left: 332px;
+  padding: 14px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.fabSettingsIcon {
+  position: relative;
+  display: block;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.fabSettingsPad {
+  position: absolute;
+  inset: 8.33%;
+}
+
+.fabSettingsPad img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}

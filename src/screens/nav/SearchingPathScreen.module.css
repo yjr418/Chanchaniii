@@ -1,0 +1,36 @@
+.screen {
+  background: #f5741e;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    #fff9f2 0%,
+    #ffe8c8 22%,
+    #ffc285 48%,
+    #ffb366 72%,
+    #f5741e 100%
+  );
+}
+
+.radarHost {
+  top: 389px;
+}
+
+.status {
+  position: absolute;
+  z-index: 2;
+  top: 656px;
+  left: 24px;
+  right: 24px;
+  margin: 0;
+  font-size: calc(24px * var(--app-text-scale, 1));
+  font-weight: 600;
+  line-height: 1.4;
+  color: #fff;
+  text-align: center;
+}

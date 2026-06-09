@@ -1,0 +1,396 @@
+.screen {
+  background: #fafaf8;
+}
+
+.bgEllipse {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ffffff 30%,
+    #fff8f0 48%,
+    #ffe8c8 68%,
+    #ffc285 88%,
+    #ffb366 100%
+  );
+}
+
+.statusRow {
+  position: absolute;
+  top: 144px;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 32px;
+}
+
+.pulseWrap {
+  position: absolute;
+  left: 19px;
+  top: -1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33.94px;
+  height: 33.94px;
+}
+
+.pulseWrap img {
+  width: 24px;
+  height: 24px;
+  animation: pulseSpin 1.6s linear infinite;
+}
+
+@keyframes pulseSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.status {
+  position: absolute;
+  left: 56px;
+  top: 0;
+  margin: 0;
+  font-size: calc(20px * var(--app-text-scale, 1));
+  font-weight: 600;
+  line-height: 1.6;
+  color: #f5741e;
+  white-space: nowrap;
+}
+
+.title {
+  position: absolute;
+  z-index: 2;
+  top: 192px;
+  left: 24px;
+  margin: 0;
+  font-size: calc(25px * var(--app-text-scale, 1));
+  font-weight: 600;
+  line-height: 1.3;
+  color: #000;
+}
+
+.radar {
+  position: absolute;
+  left: 16px;
+  top: 458px;
+  width: 379px;
+  height: 382px;
+  pointer-events: none;
+}
+
+.radarFx {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  --scan-cycle: 4.2s;
+  --scan-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  /* circle.json 기반 — 빠른 확장, 링 간격 균등 */
+  --ripple-duration: 6s;
+  --ripple-ease: linear;
+  --ripple-ring-count: 7;
+  --ripple-stagger: calc(var(--ripple-duration) * 0.498 / 3.5);
+  --ripple-base-width: 280px;
+  --ripple-max-width: 380px;
+  --ripple-max-scale: calc(var(--ripple-max-width) / var(--ripple-base-width));
+  --origin-x: 189.5px;
+  --origin-y: 219px;
+}
+
+.radarFxBeamGlow,
+.radarFxBeam,
+.radarFxCore,
+.radarFxCoreFlare,
+.radarFxRing,
+.radarFxWaveParticle {
+  mix-blend-mode: screen;
+}
+
+/* 수직 빛 기둥 — 외곽 글로우 */
+.radarFxBeamGlow {
+  position: absolute;
+  left: calc(var(--origin-x) - 20px);
+  top: 0;
+  width: 40px;
+  height: 248px;
+  background: linear-gradient(
+    to top,
+    rgba(255, 160, 60, 0) 0%,
+    rgba(255, 190, 100, 0.12) 28%,
+    rgba(255, 230, 180, 0.28) 62%,
+    rgba(255, 255, 255, 0.42) 100%
+  );
+  filter: blur(10px);
+  transform-origin: 50% 100%;
+  opacity: 0;
+  animation: radarBeamGlowRise 2.6s var(--scan-ease-out) forwards;
+}
+
+/* 수직 빛 기둥 — 핵심 광선 */
+.radarFxBeam {
+  position: absolute;
+  left: calc(var(--origin-x) - 2px);
+  top: 0;
+  width: 4px;
+  height: 238px;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 220, 160, 0.55) 22%,
+    rgba(255, 255, 255, 0.95) 78%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.95),
+    0 0 22px rgba(255, 200, 100, 0.55),
+    0 0 36px rgba(255, 160, 60, 0.25);
+  transform-origin: 50% 100%;
+  opacity: 0;
+  animation: radarBeamRise 2.2s var(--scan-ease-out) forwards;
+}
+
+/* 중심점 발광 — 빛 생성 순간 */
+.radarFxCoreFlare {
+  position: absolute;
+  left: calc(var(--origin-x) - 22px);
+  top: calc(var(--origin-y) - 14px);
+  width: 44px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 200, 100, 0.45) 45%,
+    rgba(245, 116, 30, 0) 72%
+  );
+  opacity: 0;
+  animation: radarCoreFlare var(--scan-cycle) var(--scan-ease-out) infinite;
+}
+
+.radarFxCore {
+  position: absolute;
+  left: calc(var(--origin-x) - 14px);
+  top: calc(var(--origin-y) - 8px);
+  width: 28px;
+  height: 17px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    #ffffff 0%,
+    rgba(255, 220, 160, 0.9) 42%,
+    rgba(245, 116, 30, 0.75) 100%
+  );
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.65);
+  animation: radarCorePulse var(--scan-cycle) var(--scan-ease-out) infinite;
+}
+
+/* 파동 링 — circle.json radio wave: 1초 간격 연속 확장 + 중반 페이드 */
+.radarFxRing {
+  position: absolute;
+  left: var(--origin-x);
+  top: var(--origin-y);
+  width: var(--ripple-base-width);
+  height: 178px;
+  border: 2px solid rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+  box-shadow:
+    0 0 14px rgba(255, 255, 255, 0.5),
+    0 0 28px rgba(255, 200, 100, 0.18);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  animation: radarRippleSpread var(--ripple-duration) var(--ripple-ease) infinite;
+}
+
+.radarFxRing1 { animation-delay: calc(var(--ripple-stagger) * 0); }
+.radarFxRing2 { animation-delay: calc(var(--ripple-stagger) * 1); }
+.radarFxRing3 { animation-delay: calc(var(--ripple-stagger) * 2); }
+.radarFxRing4 { animation-delay: calc(var(--ripple-stagger) * 3); }
+.radarFxRing5 { animation-delay: calc(var(--ripple-stagger) * 4); }
+.radarFxRing6 { animation-delay: calc(var(--ripple-stagger) * 5); }
+.radarFxRing7 { animation-delay: calc(var(--ripple-stagger) * 6); }
+
+/* 파동 링 안쪽 — 파동이 닿은 뒤 제자리에서 반짝임 */
+.radarFxWaveParticle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  margin: -2.5px 0 0 -2.5px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.95);
+  opacity: 0;
+  animation: radarWaveParticleTwinkle 2.8s ease-in-out infinite;
+  animation-fill-mode: backwards;
+}
+
+@keyframes radarBeamGlowRise {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scaleY(1);
+    opacity: 0.72;
+  }
+}
+
+@keyframes radarBeamRise {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scaleY(1);
+    opacity: 0.88;
+  }
+}
+
+@keyframes radarCoreFlare {
+  0%, 6% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+
+  14% {
+    transform: scale(1.35);
+    opacity: 1;
+  }
+
+  28% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+
+  100% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+}
+
+@keyframes radarCorePulse {
+  0%, 8% {
+    transform: scale(0.82);
+    opacity: 0.55;
+  }
+
+  14% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+
+  32% {
+    transform: scale(1);
+    opacity: 0.82;
+  }
+
+  100% {
+    transform: scale(0.88);
+    opacity: 0.6;
+  }
+}
+
+@keyframes radarRippleSpread {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+
+  4% {
+    opacity: 1;
+  }
+
+  30.3% {
+    transform: translate(-50%, -50%) scale(calc(var(--ripple-max-scale) * 0.55));
+    opacity: 1;
+  }
+
+  49.8% {
+    transform: translate(-50%, -50%) scale(var(--ripple-max-scale));
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(var(--ripple-max-scale));
+    opacity: 0;
+  }
+}
+
+@keyframes radarWaveParticleTwinkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.5);
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+  }
+
+  35% {
+    opacity: 1;
+    transform: scale(1.15);
+    box-shadow:
+      0 0 12px rgba(255, 255, 255, 1),
+      0 0 22px rgba(255, 220, 160, 0.55);
+  }
+
+  65% {
+    opacity: 0.4;
+    transform: scale(0.82);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.65);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .radarFxBeamGlow,
+  .radarFxBeam,
+  .radarFxCore,
+  .radarFxCoreFlare,
+  .radarFxRing,
+  .radarFxWaveParticle {
+    animation: none;
+  }
+
+  .radarFxRing1 {
+    transform: translate(-50%, -50%) scale(calc(var(--ripple-max-scale) * 0.55));
+    opacity: 0.55;
+  }
+
+  .radarFxRing2 {
+    transform: translate(-50%, -50%) scale(calc(var(--ripple-max-scale) * 0.78));
+    opacity: 0.35;
+  }
+
+  .radarFxRing3 {
+    transform: translate(-50%, -50%) scale(var(--ripple-max-scale));
+    opacity: 0.2;
+  }
+
+  .radarFxRing4,
+  .radarFxRing5,
+  .radarFxRing6,
+  .radarFxRing7 {
+    opacity: 0;
+  }
+
+  .radarFxWaveParticle {
+    opacity: 0.35;
+  }
+
+  .radarFxBeam {
+    transform: scaleY(1);
+    opacity: 0.88;
+  }
+
+  .radarFxBeamGlow {
+    transform: scaleY(1);
+    opacity: 0.72;
+  }
+}

@@ -1,0 +1,41 @@
+.screen {
+  background: linear-gradient(
+    180deg,
+    #f5741e 0%,
+    #f58d20 40%,
+    #fafaf8 80%,
+    #fafaf8 100%
+  );
+}
+
+.main {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  bottom: 140px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 116px;
+}
+
+.headline {
+  margin: 32px 0 0;
+  font-size: calc(30px * var(--app-text-scale, 1));
+  font-weight: 600;
+  line-height: 1.3;
+  color: #000;
+  text-align: center;
+}
+
+.subheadline {
+  margin: 8px 0 0;
+  font-size: calc(18px * var(--app-text-scale, 1));
+  font-weight: 500;
+  line-height: 1.3;
+  color: #808080;
+  text-align: center;
+}

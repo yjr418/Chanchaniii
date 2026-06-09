@@ -1,0 +1,68 @@
+.screen {
+  background: #fafaf8;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  top: 263px;
+  width: 180px;
+  height: 58px;
+  transform: translateX(-50%);
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+  animation: splashLogoIn 0.7s cubic-bezier(0.33, 0, 0.2, 1) both;
+}
+
+.tagline {
+  position: absolute;
+  left: 50%;
+  top: 590px;
+  width: max-content;
+  max-width: calc(100% - 48px);
+  margin: 0;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #525252;
+  font-size: calc(20px * var(--app-text-scale, 1));
+  font-weight: 500;
+  line-height: 1.6;
+  animation: splashTaglineIn 0.7s cubic-bezier(0.33, 0, 0.2, 1) 0.15s both;
+}
+
+.taglineLine {
+  display: block;
+  white-space: nowrap;
+}
+
+@keyframes splashLogoIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes splashTaglineIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .tagline {
+    animation: none;
+  }
+}

@@ -1,0 +1,38 @@
+.title {
+  margin-top: 24px;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(25px * var(--app-text-scale, 1));
+  font-weight: 600;
+  line-height: 1.3;
+  color: #000;
+}
+
+.photoFrame {
+  margin: 24px auto 0;
+  width: calc(100% - 64px);
+  max-width: 348px;
+  height: 408px;
+  border: 1px solid #d6d6d6;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.photoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.outputFrame {
+  background: #f3f0ed;
+}
+
+.outputImage {
+  object-fit: cover;
+  object-position: center top;
+}

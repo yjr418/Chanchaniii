@@ -1,0 +1,37 @@
+.screen {
+  background: #1a1a1a;
+  overflow: hidden;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  pointer-events: none;
+}
+
+.sceneLoading {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: calc(14px * var(--app-text-scale, 1));
+  font-weight: 500;
+}
+
+.scenePlaceholder {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, #3a3a3a 0%, #1a1a1a 100%);
+  pointer-events: none;
+}
